@@ -1,0 +1,55 @@
+# Python virtual environment
+ai-venv/
+venv/
+env/
+ENV/
+
+# Node modules (if any)
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# PHP sessions/logs
+php_error_log
+error_log
+
+# Large binary files
+*.pyd
+*.dll
+*.lib
+*.exe
+*.pdb
+
+# AI/ML model files (if not needed)
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+
+# Cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

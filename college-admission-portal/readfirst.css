@@ -1,0 +1,406 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* HEADER */
+.header-section {
+  background: url('assets/header.png') center center no-repeat;
+  background-size: contain;
+  width: 100vw;
+  height: auto;
+  aspect-ratio: 2000 / 601;
+  background-attachment: scroll;
+  background-color: white;
+}
+
+/* INFORMATION BOX */
+.info-box {
+  border-left: 6px solid #5BC0DE;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  width: 90%;
+  background-color: #FFFFFF;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.info-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.info-content .info-icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+}
+
+.info-content p {
+  margin: 0;
+}
+
+.info-box a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* AY SECTION */
+.ay-section {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 25px ;
+}
+
+.grades-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 60px auto;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.grades-title {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.grades-box-container {
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 50px 30px 40px;
+  width: 92%;
+  margin:0 auto;
+  display: flex;
+  justify-content:center;
+  align-items: stretch;
+  column-gap: 350px;
+  row-gap: 30px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grade-card {
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  padding: 20px;
+  flex: 0 1 450px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.grade-card:hover {
+  transform: scale(1.05);
+}
+
+.grade-card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.grade-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.grade-header img {
+  width: 60px;
+  height: auto;
+}
+
+.grade-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.download-text {
+  color: #656565;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top:auto;
+}
+
+.download-text i {
+  color: #656565;
+  font-size: 1em;
+}
+
+/* STEPS */
+.steps-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 75px;
+  position: relative;
+  align-items: center;
+  height: 70px;
+}
+
+/* line behind the circles */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 50px; /* margin from left */
+  right: 50px; /* margin from right */
+  height: 2px;
+  background-color: #ccc;
+  z-index: -1; /* put behind the step circles */
+  transform: translateY(-50%); /* perfectly center line vertically */
+}
+
+@media (max-width: 900px) {
+  .steps::before {
+    display: none;
+  }
+}
+
+/* STEP CIRCLES */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #777;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.step span {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  transition: all 0.3s;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.step i {
+  font-size: 17px;
+}
+
+/* ACTIVE STEP */
+.step.active span {
+  background-color: #28a745; /* green */
+  border-color: #1a9737;
+  color: #fff;
+}
+
+.step.active p {
+  color: #28a745;
+}
+
+/* body */
+.container {
+    width: calc(100% - 60px);       
+    margin: 0 auto;             /* center horizontally */
+    background-color: white;
+    border-radius: 8px;
+    border: 4px solid #EEEEEE; 
+    padding: 20px;          /* optional internal padding */
+    box-sizing: border-box; /* include padding in width/height */
+}
+
+.read-first-section {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+  font-family: 'Roboto', sans-serif;
+  color: #282828;
+}
+
+.read-first-box {
+  background-color: #fff;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 40px 60px;
+  width: 92%;
+  box-sizing: border-box;
+  line-height: 1.6;
+  text-align: justify;
+  flex-wrap: wrap;
+}
+
+/* When the screen gets small enough for overlap risk */
+@media (max-width: 900px) {
+  .read-first-box {
+    margin-top: 200px; /* add extra space only when needed */
+  }
+}
+
+.main-title {
+  text-align: center;
+  color: #D84046;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  color: #D84046;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.definitions {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.definitions li {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.section-title-green {
+  color: #3C763D;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.requirements-list, .program-list ol, .procedure-list ol {
+  margin-left: 25px;
+  padding-left: 10px;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+}
+
+.requirements-list ul, .procedure-list ul, .procedure-list ul {
+  list-style-type: disc;
+  margin-left: 25px;
+}
+
+.program-list p {
+  color: #282828;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.program-list ol li {
+  margin-bottom: 8px;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Two-column layout */
+.strand-requirements {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #282828;
+}
+
+.strand-requirements .column {
+  flex: 1;
+}
+
+.strand-title {
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  color: #282828;
+  margin-bottom: 10px;
+}
+
+.sub-title {
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  color: #282828;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.strand-requirements p {
+  padding: 0 80px;
+  margin: 2px 0;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #282828;
+}
+
+.continue-btn {
+  margin-top: 30px;
+  background-color: #D84046;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.read-first-box a {
+  color: #0086C9;
+}
+
+.btn-next {
+  background-color: #5CB85C;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 30px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  float: right;
+  font-weight: 400 !important;
+}
+
+.btn-next:hover {
+  background-color: #4cae4c;
+}

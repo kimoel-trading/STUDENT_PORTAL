@@ -1,0 +1,738 @@
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Arial', sans-serif;
+  background:#f5f5f5;
+  color:#222;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+/* ===== HEADER / BANNER ===== */
+.bsu-banner {
+  position: relative;
+  width: 100%;
+  height: 340px;              /* header height */
+  overflow: hidden;
+}
+
+/* Background container */
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* background image fills header area */
+.banner-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  filter: brightness(0.99);
+}
+
+/* white translucent overlay to lighten background for readability */
+.banner-bg::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,0.55);
+  pointer-events:none;
+}
+
+/* overlay layer for content */
+.banner-overlay {
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* top-left logo + text container */
+.banner-top {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 3;
+}
+
+/* logo */
+.banner-top img {
+  width: 95px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* university name + tagline */
+.banner-name {
+  color: #000;
+  line-height: 1.1;
+}
+
+.banner-name h1 {
+  font-size: 35px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  font-family: Averia Serif Libre;
+}
+
+.banner-name .tagline-red {
+  color: #c41e3a;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: Roboto Condensed;
+}
+
+/* center text block */
+.banner-text {
+  position: absolute;
+  top: 55%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #111;
+  padding-right: 150px; /* moves text further right */
+  z-index: 3;
+}
+
+.banner-text .big-line {
+  font-size: 55px;
+  font-weight: 900;
+  margin: 2px 0;
+  color: #222;
+  letter-spacing: 0.5px;
+  font-family: Roboto;
+}
+
+/* bottom-right alangilan image */
+.logo-bottom-right {
+  position: absolute;
+  bottom: 32px;
+  right: 0;
+  width: 550px;
+  max-width: 54%;
+  height: auto;
+  z-index: 4;
+  object-fit: cover;
+  transform: translateY(35px); /* lift above blue line */
+}
+
+/* blue footer slogan */
+.banner-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0078c9;
+  display: flex;           /* allows vertical centering */
+  align-items: center;     /* center text vertically */
+  justify-content: flex-start; /* keep text on the left */
+  padding-left: 250px; /* moves text further right */
+  height: 45px;            /* consistent bar height */
+  z-index: 3;
+}
+
+.banner-footer p {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+/* full-screen login section */
+.login-container {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left = 0 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+/* dark background overlay behind the box */
+.login-container .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); /* darker overlay */
+  backdrop-filter: blur(4px); /* smooth blurred background */
+  z-index: 0;
+}
+
+/* floating login box */
+.login-modal {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 40px 35px;
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+}
+
+/* slight scale-up animation for pop effect */
+.login-modal {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ===== LOGIN BOX CONTENT ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* responsive tweak */
+@media (max-width: 768px) {
+  .login-modal {
+    padding: 28px 20px;
+  }
+}
+
+/* small input and button styles kept simple */
+.form-group { margin-bottom:16px; }
+.form-group label { display:block; font-weight:600; font-size:13px; margin-bottom:6px; }
+.form-group input { width:100%; padding:10px; border:1px solid #ddd; border-radius:4px; }
+
+/* info box */
+.info-box { display:flex; gap:8px; align-items:flex-start; background:#fafafa; padding:10px; border-left:4px solid #0088cc; color:#333; }
+
+/* buttons */
+.button-group { display:flex; gap:10px; margin-top:18px; }
+.btn { flex:1; padding:11px; border-radius:4px; font-weight:700; cursor:pointer; border:none; }
+.btn-forgot { background:#fff; color:#0088cc; border:1px solid #0088cc; }
+.btn-login { background:#0088cc; color:#fff; }
+
+/* ===================== FOOTER ===================== */
+footer {
+  background:#3a3a3a;
+  color:#fff;
+  border-top:3px solid #0088cc;
+  width:100%;
+}
+
+.footer-content {
+  max-width:1200px;
+  margin:0 auto;
+  padding:18px 28px;
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:space-between;
+  box-sizing:border-box;
+}
+
+.footer-left, .footer-center {
+  min-width:220px;
+  flex:1;
+}
+
+.footer-right {
+  min-width:140px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start; /* align left inside the right column */
+}
+
+.footer-right img { width:80px; height:auto; display:block; }
+
+/* responsive adjustments */
+@media (max-width: 768px) {
+  .banner-top {
+    left: 20px;
+    top: 20px;
+  }
+  .banner-top img {
+    width: 70px;
+  }
+  .banner-name h1 {
+    font-size: 22px;
+  }
+  .banner-name .tagline-red {
+    font-size: 14px;
+  }
+  .banner-text .big-line {
+    font-size: 32px;
+  }
+  .logo-bottom-right {
+    width: 220px;
+    bottom: 20px;
+    transform: translateY(15px);
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;            /* Full viewport height */
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+  justify-content: center;
+  align-items: center;
+  overflow: auto;          /* Allow modal to scroll if content is too tall */
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border: 2px solid #ccc;       /* ✅ visible border */
+  border-radius: 10px;
+  width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* soft drop shadow */
+  padding: 0;                   /* keep content spacing consistent */
+  box-sizing: border-box;
+}
+
+.modal-content.large {
+  width: 600px;
+}
+
+.modal-header {
+  background: #f5f5f5;
+  padding: 12px 20px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.modal-body {
+  padding: 20px 25px;
+  text-align: center;
+}
+
+p.welcome {
+  font-weight: 600;
+  color: #333;
+  margin: 5px 0;
+}
+
+p.subtitle {
+  position: relative;       /* So it can overlap border */
+  top: 10px;               /* Move upward to overlap border */
+  display: inline-block;    /* Shrinks to text size */
+  background: #fff;         /* White behind text only */
+  padding: 0 6px;           /* Small padding left-right */
+  font-size: 13px;
+  color: #777;
+  z-index: 2;
+  line-height: 1;           /* Tightens the text box height */
+}
+
+.form-group {
+  position: relative; /* Make container the reference point */
+  padding: 25px;
+  border: 2px solid #ccc; /* The main border box */
+  border-radius: 10px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: left
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.info-box {
+  background: #f7f7f7;
+  padding: 10px;
+  font-size: 13px;
+  color: #555;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  border: 1px solid #ffffff;
+}
+
+/* Forgot button specific styles */
+.btn-forgot {
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color: #656565;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-forgot:hover {
+  background-color: #99999982;   /* Darker on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Login button specific styles */
+.btn-login {
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color: #656565;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #c9c9c982;   /* Darker on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.btn-back {
+  padding: 5px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #99999982;   /* Darker on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.option {
+  margin: 20px auto;
+  border: 2px solid #EEEEEE;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 30px 25px 20px;   /* extra top padding for the title space */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;        /* make the container reference point */
+}
+
+/* Title styles */
+.opt-title {
+  position: absolute;        /* float above the border */
+  top: -15px;                /* overlap upward */
+  left: 50%;                 /* move to the center horizontally */
+  transform: translateX(-50%); /* truly center it */
+  background: #EEEEEE;          /* white background hides border */
+  padding: 5px 12px;            /* little space around text */
+  font-size: 15px;
+  line-height: 1;
+  z-index: 2;
+  font-weight: normal;
+  border-radius: 4px;        /* optional, looks softer */
+  color: #c51111;
+}
+
+.details-container {
+  position: relative;
+  margin: 0 auto;                 /* truly centers horizontally */
+  display: block;                 /* ensure it's treated as a block */
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  padding: 30px 25px;
+  width: 500px;
+  max-width: 100%;                /* makes it responsive on small screens */
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Centered overlapping title */
+.opt-title2 {
+  position: absolute;
+  top: -14px;                       /* slightly above border */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #EEEEEE;
+  color: #00b230;
+  border-radius: 4px;
+  border: 1px solid #EEEEEE;
+  padding: 5px 12px;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 1;
+  z-index: 2;
+}
+
+/* Content inside */
+.app-details {
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.alert.info {
+  display: flex;               /* Align icon and text horizontally */
+  align-items: flex-start;     /* Align icon to the top of text */
+  gap: 10px;                   /* Space between icon and text */
+  padding: 12px 15px;          /* Inner padding */
+  background-color: #fff8e1;   /* Light yellow background */
+  color: #333;                 /* Text color */
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional subtle shadow */
+}
+
+.alert-icon {
+  width: 20px;                 /* Icon size */
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;              /* Prevent icon from shrinking */
+  margin-top: 2px;             /* Align roughly with text top */
+}
+
+.alert.info2 {
+  display: flex;                /* Align icon and text horizontally */
+  align-items: flex-start;      /* Align icon to top of text */
+  gap: 10px;                    /* Space between icon and text */
+  padding: 12px 15px;           /* Inner padding */
+  background-color: #fff9e6;    /* Light yellow background */
+  color: #333;                  /* Text color */
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Optional subtle shadow */
+}
+
+.alert.info3 {
+  display: flex;                /* Align icon and text horizontally */
+  align-items: flex-start;      /* Align icon to top of text */
+  gap: 10px;                    /* Space between icon and text */
+  padding: 12px 15px;           /* Inner padding */
+  background-color: #fff9e6;    /* Light yellow background */
+  color: #333;                  /* Text color */
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Optional subtle shadow */
+}
+
+.info-icon {
+  width: 20px;                  /* Icon size */
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;               /* Prevent icon from shrinking */
+  margin-top: 2px;              /* Align roughly with text top */
+}
+
+.note {
+  font-size: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.note1 {
+  font-size: 10px;
+  color: #333;
+}
+
+.note2 {
+  background: #e8f4fd;
+  border-left: 4px solid #2196F3;
+  padding: 10px;
+  font-size: 13px;
+  color: #333;
+}
+
+.note3 {
+  background: #6969690e;
+  border-left: 4px solid #f39f21;
+  padding: 10px;
+  font-size: 13px;
+  color: #333;
+}
+
+.Enteremail {
+  font-size: 15px;
+  margin-bottom: 50px;
+}
+
+.submitbtn {
+  display: inline-flex;        /* Align icon and text horizontally */
+  align-items: center;         /* Vertically center them */
+  gap: 12px;                   /* Space between icon and text */
+  padding: 5px 20px;          /* Button padding */
+  background-color: #ffffff;   /* Button color */
+  color: #0d93c8;                /* Text color */
+  border:2px solid #0d93c8;            
+  border-radius: 50px;          /* Rounded corners */
+  cursor: pointer;             /* Pointer on hover */
+  font-size: 12px;             /* Text size */
+  transition: background-color 0.3s ease; /* Smooth hover */
+}
+
+.submitbtn:hover {
+  background-color: #25b3ff7e;   /* Darker on hover */
+}
+
+.submitbtn .submit-icon {
+  width: 20px;                 /* Icon size */
+  height: 20px;                /* Icon size */
+  object-fit: contain;         /* Keep aspect ratio */
+}
+
+.option input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.option p {
+  margin-bottom: -8px;
+}
+
+.info-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.modal-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.forgot-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+}
+
+.login-icon {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.application {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: left;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-details .alert {
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.app-details .alert.error {
+  background: #fdecea;
+  color: #b00020;
+  text-align: center;
+  font-weight: 600;
+}
+
+.app-details .alert.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* ===== TOAST NOTIFICATION ===== */
+.toast {
+  visibility: hidden;
+  min-width: 260px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 12px 16px;
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  top: 80px;
+}
+
+.toast.success {
+  background: #2e7d32;
+}
+.toast.error {
+  background: #c62828;
+}
+.toast.info {
+  background: #0277bd;
+}
+
+/* ===== NOTIFICATION WITHIN LOGIN ===== */
+.notif {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #c62828;
+}
+
+.button-container {
+  text-align: right;
+  margin-right: 30px;
+}     

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batangas State University | College Admission</title>
+  <link rel="stylesheet" href="submit.css">
+  <script defer src="user-session.js"></script>
+  <script defer src="submit.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header-section">
+  </header>
+
+  <!-- INFORMATION BOX -->
+  <div class="info-box">
+    <div class="info-content">
+      <img src="assets/info.png" alt="Info Icon" class="info-icon">
+      <p>
+         To stay updated on the progress of your application, track important updates,
+        and view any additional information related to your application, we encourage
+        you to visit our <a href="index.html" target="_blank" class="program-link">Applicant's Portal</a> 
+        The portal is a convenient
+        platform designed to help you manage your application journey with us. To verify
+        your application or forgot your Application Number / PIN, please click
+        <a href="landing.php" target="_blank" class="program-link">here</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ACADEMIC YEAR SECTION -->
+  <section class="ay-section">
+    <h2>AY 2026-2027</h2>
+
+    <div class="grades-section">
+      <div class="grades-title">Grades Form Template</div>
+
+      <div class="grades-box-container">
+        <div class="grade-card">
+          <div class="grade-header">
+            <img src="assets/download-icon.png" alt="Download">
+            <h3>Grades Form 1 (Regular Admission)</h3>
+          </div>
+          <p class ="download-text">
+            <i class="fa-solid fa-circle-info"></i>
+            Click to download
+          </p>
+        </div>
+
+        <div class="grade-card">
+          <div class = "grade-header">
+            <img src="assets/download-icon.png" alt="Download">
+            <h3>Grades Form 2 (ALS Graduation)</h3>
+          </div>
+          <p class ="download-text">
+            <i class="fa-solid fa-circle-info"></i>
+            Click to download
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION STEPS -->
+  <section class="steps-section">
+    <div class="steps">
+      <div class="step"><span><i class="fa-solid fa-house"></i></span><p>Welcome</p></div>
+      <div class="step"><span><i class="fa-solid fa-circle-info"></i></span><p>Read First</p></div>
+      <div class="step"><span>?</span><p>Confirmation</p></div>
+      <div class="step"><span>?</span><p>AAP</p></div>
+      <div class="step"><span>1</span><p>Personal</p></div>
+      <div class="step"><span>2</span><p>Education and Attachments</p></div>
+      <!--
+      <div class="step"><span>3</span><p>Attachments</p></div>
+      -->
+      <div class="step"><span>3</span><p>Programs</p></div>
+      <div class="step"><span>4</span><p>Form Review</p></div>
+      <div class="step active"><span>5</span><p>Submit</p></div>
+    </div>
+  </section>
+
+  <!--Body-->
+ <div class="container">
+        <div class="section-header">Submit Application</div>
+
+    <div class="frame">     
+  <div class="notice-box">
+      <p>Your application will be submitted upon ticking <b>"I hereby certify..."</b> and clicking <b>"Submit Application"</b> button. 
+      When successful, an email notification will be sent to <b>asdasdasdasd@gmail.com.</b></p>
+    </div> 
+
+<div class="container2">
+        <div class="signature-label">Signature</div>
+        
+        <div class="signature-section">
+            <div>
+                <div class="signature-box" id="signatureBox">
+                    <canvas id="signatureCanvas"></canvas>
+                    <img id="signatureImage" class="signature-image" alt="Signature">
+                    <div class="signature-placeholder" id="placeholder">Click to upload signature</div>
+                </div>
+                
+                <div class="file-controls">
+                    <input type="file" id="fileInput" class="file-input" accept="image/*">
+                    <button class="btn" id="chooseFileBtn">Choose File</button>
+                    <span id="fileName" style="color: #999; font-size: 13px;">No file chosen</span>
+                </div>
+                
+                <button class="btn-draw" id="drawBtn">
+                    <svg class="pen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                        <path d="M2 2l7.586 7.586"></path>
+                    </svg>
+                    Draw Signature
+                </button>
+            </div>
+            
+            <div class="requirements-box">
+                <div class="requirements-header">
+                    <div class="info-icon">i</div>
+                    <span>Signature Requirements</span>
+            </div>
+                <ul class="requirements-list">
+                    <li>Plain white background</li>
+                    <li>Signature in <strong>black tint</strong></li>
+                    <li>Less than <strong>2mb</strong> in file size</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr class="divider">
+
+        <div class="certification-section">
+            <div class="checkbox-group">
+                <input type="checkbox" id="certifyCheckbox">
+                <label for="certifyCheckbox" class="certification-text">
+                    I hereby certify that all information provided herein is complete and accurate. 
+                    Misrepresentation, falsification and any form of dishonesty committed in relation to my 
+                    application shall be sufficient grounds for my disqualification from admission to BatStateU.
+                </label>
+            </div>
+        </div>
+
+<!-- Success Notification -->
+<div id="notifOverlay" class="notif-overlay">
+  <div class="notif-box">
+    <div class="notif-icon">
+      <span>&#10003;</span>
+    </div>
+
+    <h2 class="notif-title">Application Submitted</h2>
+    <p class="notif-sub">Check your Status</p>
+
+    <button class="notif-btn" onclick="goToEducAttach()">Proceed</button>
+  </div>
+</div>
+
+        <div class="submit-section">
+            <button class="btn-submit" id="submitBtn" disabled>Submit Application</button>
+        </div>
+    </div>

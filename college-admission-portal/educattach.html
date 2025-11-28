@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batangas State University | College Admission</title>
+  <link rel="stylesheet" href="educattach.css">
+  <script defer src="user-session.js"></script>
+  <script defer src="educattach.js?v=20251124"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header-section">
+  </header>
+
+  <!-- INFORMATION BOX -->
+  <div class="info-box">
+    <div class="info-content">
+      <img src="assets/info.png" alt="Info Icon" class="info-icon">
+      <p>
+         To stay updated on the progress of your application, track important updates,
+        and view any additional information related to your application, we encourage
+        you to visit our <a href="index.html" target="_blank" class="program-link">Applicant's Portal</a> 
+        The portal is a convenient
+        platform designed to help you manage your application journey with us. To verify
+        your application or forgot your Application Number / PIN, please click
+        <a href="landing.php" target="_blank" class="program-link">here</a>.
+      </p>
+    </div>
+  </div>
+
+  <!-- ACADEMIC YEAR SECTION -->
+  <section class="ay-section">
+    <h2>AY 2026-2027</h2>
+
+    <div class="grades-section">
+      <div class="grades-title">Grades Form Template</div>
+
+      <div class="grades-box-container">
+        <div class="grade-card">
+          <div class="grade-header">
+            <img src="assets/download-icon.png" alt="Download">
+            <h3>Grades Form 1 (Regular Admission)</h3>
+          </div>
+          <p class ="download-text">
+            <i class="fa-solid fa-circle-info"></i>
+            Click to download
+          </p>
+        </div>
+
+        <div class="grade-card">
+          <div class = "grade-header">
+            <img src="assets/download-icon.png" alt="Download">
+            <h3>Grades Form 2 (ALS Graduation)</h3>
+          </div>
+          <p class ="download-text">
+            <i class="fa-solid fa-circle-info"></i>
+            Click to download
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION STEPS -->
+  <section class="steps-section">
+    <div class="steps">
+      <div class="step"><span><i class="fa-solid fa-house"></i></span><p>Welcome</p></div>
+      <div class="step"><span><i class="fa-solid fa-circle-info"></i></span><p>Read First</p></div>
+      <div class="step"><span>?</span><p>Confirmation</p></div>
+      <div class="step"><span>?</span><p>AAP</p></div>
+      <div class="step"><span>1</span><p>Personal</p></div>
+      <div class="step active"><span>2</span><p>Education and Attachments</p></div>
+      <div class="step"><span>3</span><p>Programs</p></div>
+      <div class="step"><span>4</span><p>Form Review</p></div>
+      <div class="step"><span>5</span><p>Submit</p></div>
+    </div>
+  </section>
+
+  <!--Body-->
+  <section id="educattach-section" class="educattach-section">
+    <div class="container">
+        <div class="section-header">Attachments</div>
+        
+        <div class="content">
+            <div class="note">
+                Note: (<span class="required">*</span>) - Required
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-title">
+                    Required attachments for graduates (4):
+                </div>
+
+                <div class="upload-item">
+                    <span class="upload-item-text">1. Grades Form 1 (for Regular Admission)</span>
+                    <div class="upload-controls">
+                        <button class="upload-btn" onclick="document.getElementById('file1').click()">Choose File</button>
+                        <span class="file-status" id="status1">No file chosen</span>
+                        <input type="file" id="file1" class="file-input" onchange="handleFileUpload(1, 'Grades Form 1 (for Regular Admission)')">
+                    </div>
+                </div>
+
+                <div class="upload-item">
+                    <span class="upload-item-text">2. Junior High School Form 137</span>
+                    <div class="upload-controls">
+                        <button class="upload-btn" onclick="document.getElementById('file2').click()">Choose File</button>
+                        <span class="file-status" id="status2">No file chosen</span>
+                        <input type="file" id="file2" class="file-input" onchange="handleFileUpload(2, 'Junior High School Form 137')">
+                    </div>
+                </div>
+
+                <div class="upload-item">
+                    <span class="upload-item-text">3. Senior High School Form 137</span>
+                    <div class="upload-controls">
+                        <button class="upload-btn" onclick="document.getElementById('file3').click()">Choose File</button>
+                        <span class="file-status" id="status3">No file chosen</span>
+                        <input type="file" id="file3" class="file-input" onchange="handleFileUpload(3, 'Senior High School Form 137')">
+                    </div>
+                </div>
+
+                <div class="upload-item">
+                    <span class="upload-item-text">4. Certificate of Enrollment</span>
+                    <div class="upload-controls">
+                        <button class="upload-btn" onclick="document.getElementById('file4').click()">Choose File</button>
+                        <span class="file-status" id="status4">No file chosen</span>
+                        <input type="file" id="file4" class="file-input" onchange="handleFileUpload(4, 'Certificate of Enrollment')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="file-list-section">
+                <div class="file-list-title">List of Attached Files</div>
+                
+                <table class="file-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>File Name</th>
+                            <th>Size</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fileTableBody">
+                        <tr>
+                            <td colspan="5">
+                                <div class="empty-state">
+                                    <div class="empty-icon">🔍</div>
+                                    <div class="empty-text">No Attached files</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="error-box">
+                <div class="error-icon">⊗</div>
+                <div class="error-text">
+                    Required document files are incomplete or missing, and receiving an ⊗ will require you to re-upload the necessary files.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom confirmation box -->
+    <div id="confirmBox" class="confirm-box">
+      <div class="confirm-content">
+        <p>Are you sure you want to remove this file?</p>
+        <div class="confirm-buttons">
+          <button id="confirmYes" class="confirm-btn yes">Yes</button>
+          <button id="confirmNo" class="confirm-btn no">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- educational information -->
+    <div class="container2">
+        <div class="section-header2">Educational Information</div>
+        
+        <div class="content2">
+            <div class="note2">
+              Note: (<span class="required">*</span>) - Required
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><span class="required">*</span> Senior High School (SHS)</label>
+              <input type="text" class="form-input" id="shsName" name="shsName" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">SHS Email (Optional)</label>
+              <input type="email" class="form-input" id="shsEmail" name="shsEmail">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><span class="required">*</span> School Type</label>
+              <div class="radio-group">
+                <input type="radio" id="private" name="schoolType" value="private" checked required>
+                <label for="private">Private school</label>
+                <input type="radio" id="public" name="schoolType" value="public">
+                <label for="public">Public school</label>
+                <input type="radio" id="als" name="schoolType" value="als">
+                <label for="als">Alternative Learning School</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><span class="required">*</span> Track</label>
+              <select class="form-input" id="track" name="track" required>
+                <option value="">Select track...</option>
+                <option value="academic">Academic</option>
+                <option value="arts">Arts and Design</option>
+                <option value="sports">Sports</option>
+                <option value="tvl">Technical-Vocational-Livelihood</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Strand</label>
+              <select class="form-input" id="strand" name="strand" required>
+                <option value="">Select strand...</option>
+                <option value="stem">Science, Technology, Engineering and Mathematics (STEM)</option>
+                <option value="abm">Accountancy, Business and Management (ABM)</option>
+                <option value="humss">Humanities and Social Sciences (HUMSS)</option>
+                <option value="gas">General Academic Strand (GAS)</option>
+                <option value="maritime">Pre-Baccalaureate Maritime (STEM)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Specialization</label>
+              <input type="text" class="form-input" name="specialization">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><span class="required">*</span> Junior HS Completion Year</label>
+              <input type="text" class="form-input" id="jhsCompletionYear" name="jhsCompletionYear" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Senior HS Completion Year</label>
+              <input type="text" class="form-input" id="shsCompletionYear" name="shsCompletionYear" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"><span class="required">*</span> Category of Applicant</label>
+              <div class="radio-group">
+                <input type="radio" id="regular" name="category" value="regular" checked>
+                <label for="regular">Regular Admission</label>
+                <input type="radio" id="als-cat" name="category" value="als">
+                <label for="als-cat">Alternative Learning System</label>
+                <input type="radio" id="filipino-non" name="category" value="filipino-non">
+                <label for="filipino-non">Filipino Abroad (non-DepEd Curriculum)</label>
+                <input type="radio" id="filipino-with" name="category" value="filipino-with">
+                <label for="filipino-with">Filipino Abroad (with DepEd Curriculum)</label>
+              </div>
+            </div>
+        </div>
+    </div>
+      
+    <div class="section-header cyan">Junior and Senior High School Final Grades</div>
+
+    <div class="content1">
+      <div class="table-title">Junior High School Final Grades</div>
+      <table class="grades-table">
+        <thead>
+          <tr>
+            <th rowspan="2">Subjects</th>
+            <th colspan="1">Grade (%)</th>
+          </tr>
+          <tr>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="subject-name">Mathematics</td>
+            <td><input type="number" name="jhsMath" min="0" max="100"></td>
+          </tr>
+          <tr>
+            <td class="subject-name">Science</td>
+            <td><input type="number" name="jhsScience" min="0" max="100"></td>
+          </tr>
+          <tr>
+            <td class="subject-name">English</td>
+            <td><input type="number" name="jhsEnglish" min="0" max="100"></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+   <div class="content2">
+  <div class="table-title">Senior High School Final Grades</div>
+  <table class="grades-table2">
+    <thead>
+      <tr>
+        <th colspan="9" class="semester-header">Grade 11</th>
+      </tr>
+      <tr>
+        <th rowspan="2">Subject</th>
+        <th colspan="4">First Semester</th>
+        <th colspan="4">Second Semester</th>
+      </tr>
+      <tr>
+        <th class="priority-cell">Priority</th>
+        <th>Alternative</th>
+        <th>Grade<br>(%)</th>
+        <th>N/A</th>
+        <th class="priority-cell">Priority</th>
+        <th class="alternative-cell">Alternative</th>
+        <th>Grade<br>(%)</th>
+        <th>N/A</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Each subject row now has unique names -->
+      <tr>
+        <td class="subject-name2">MATH</td>
+        <td class="priority-cell">Pre-Calculus</td>
+        <td class="alternative-cell">
+          <select name="g11MathAlt1">
+            <option></option>
+            <option>General Mathematics</option>
+          </select>
+        </td>
+        <td><input type="number" name="g11MathGrade1" min="0" max="100"></td>
+        <td><input type="checkbox" name="g11MathNA1"></td>
+
+        <td class="priority-cell">Basic Calculus</td>
+        <td class="alternative-cell">
+          <select name="g11MathAlt2">
+            <option></option>
+            <option>Statistics and Probability</option>
+          </select>
+        </td>
+        <td><input type="number" name="g11MathGrade2" min="0" max="100"></td>
+        <td><input type="checkbox" name="g11MathNA2"></td>
+      </tr>
+
+      <tr>
+        <td class="subject-name2">SCIENCE</td>
+        <td class="priority-cell">Earth Science</td>
+        <td class="alternative-cell">
+          <select name="g11ScienceAlt1">
+            <option></option>
+            <option>General Chemistry II</option>
+            <option>General Physics I</option>
+            <option>General Biology I</option>
+            <option>Disaster Readiness & Risk Reduction</option>
+          </select>
+        </td>
+        <td><input type="number" name="g11ScienceGrade1" min="0" max="100"></td>
+        <td><input type="checkbox" name="g11ScienceNA1"></td>
+
+        <td class="priority-cell">General Chemistry I</td>
+        <td class="alternative-cell">
+          <select name="g11ScienceAlt2">
+            <option></option>
+            <option>General Chemistry II</option>
+            <option>General Physics I</option>
+            <option>General Biology I</option>
+            <option>Disaster Readiness & Risk Reduction</option>
+          </select>
+        </td>
+        <td><input type="number" name="g11ScienceGrade2" min="0" max="100"></td>
+        <td><input type="checkbox" name="g11ScienceNA2"></td>
+      </tr>
+
+      <tr>
+        <td class="subject-name2">ENGLISH</td>
+        <td class="priority-cell">Oral Communication</td>
+        <td class="alternative-cell">
+          <select name="g11EnglishAlt1">
+            <option></option>
+            <option>English for Academic Purposes</option>
+          </select>
+        </td>
+        <td><input type="number" name="g11EnglishGrade1" min="0" max="100"></td>
+        <td><input type="checkbox" name="g11EnglishNA1"></td>
+
+        <td class="priority-cell">Reading and Writing</td>
+        <td class="alternative-cell"></td>
+        <td><input type="number" name="g11EnglishGrade2" min="0" max="100"></td>
+        <td><input type="checkbox" name="g11EnglishNA2"></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+      <div class="note-text">* N/A = Not Available</div>
+     
+    <div class="reminder-box">
+      <div class="reminder-text">
+       <h4> REMINDER </h4>
+        <p> • In case one of the priority subjects is not available, the missing subjects will be substituted by the alternative subject. </p>
+          <p class="indent"> • For an instance, for STEM Applicants who have no Earth Science yet, then the General Chemistry I (a priority subject) and the General Chemistry II (an alternative subject #1) must be encoded. </p>
+        <p> • In case both priority subjects are not yet available, then the two subsequently listed alternative subjects will be used.</p>
+          <p class="indent"> •  For an instance, for STEM Applicants who have no Earth Science and General Chemistry yet, then the General Physics I (alternative subject #2) and General Biology I (alternative subject #3) must be used.</p>
+        <p> • Tick (✔) the box in such case where both priority and alternative subjects are not available.</p>
+        <p> • Please be reminded that a proof such as Certificate of Unavailability of subjects must be uploaded at the 'Uploading of File' option. </p>
+        <p> • Please ensure that information must be true and correct. Only those with unavailble priority subject/s will request change the default subjects. </p>
+      </div>
+    </div>
+
+    <div class="notes-box">
+      <div class="notes-text">
+       <h4> NOTES </h4>
+        <p> Certificate of unavailability of Subjects is REQUIRED, in case, any of the required priority subjects is not available. In case there are no available priority and alternative subjects, please tick the N/A box. </p>
+      </div>
+    </div>
+
+    <div class="req-box">
+  <div class="req-text">
+    <div class="req-header">
+      <img src="assets/info (1).png" alt="Info" class="alert1-icon">
+      <h4>Grade Requirements</h4>
+    </div>
+    <p>For Engineering and Programs with Board Examination</p>
+    <p class="indent">Must have a final grade of 80% or above in Math, Science and English subjects during Grade 10 and Grade 11 (First and Second Semester).</p>
+
+    <p>For Bachelor of Secondary Education major in Mathematics / Science</p>
+    <p class="indent">No Grade below 85%</p>
+  </div>
+</div>
+    
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="next-btn">Next &#10140;</button>
+  </div>
+
+  <!-- Notification Box -->
+<div id="notification" class="notification">
+  <span id="notification-text"></span>
+  <span class="close-btn" onclick="hideNotification()">×</span>
+</div>
+</section>
+</body>
+</html>

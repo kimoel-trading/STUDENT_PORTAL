@@ -1,0 +1,1398 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* HEADER */
+.header-section {
+  background: url('assets/header.png') center center no-repeat;
+  background-size: contain;
+  width: 100vw;
+  height: auto;
+  aspect-ratio: 2000 / 601;
+  background-attachment: scroll;
+  background-color: white;
+}
+
+/* INFORMATION BOX */
+.info-box {
+  border-left: 6px solid #5BC0DE;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  width: 90%;
+  background-color: #FFFFFF;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.info-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.info-content .info-icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+}
+
+.info-content p {
+  margin: 0;
+}
+
+.info-box a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* AY SECTION */
+.ay-section {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 25px ;
+}
+
+.grades-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 60px auto;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.grades-title {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.grades-box-container {
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 50px 30px 40px;
+  width: 92%;
+  margin:0 auto;
+  display: flex;
+  justify-content:center;
+  align-items: stretch;
+  column-gap: 350px;
+  row-gap: 30px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grade-card {
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  padding: 20px;
+  flex: 0 1 450px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.grade-card:hover {
+  transform: scale(1.05);
+}
+
+.grade-card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.grade-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.grade-header img {
+  width: 60px;
+  height: auto;
+}
+
+.grade-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.download-text {
+  color: #656565;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top:auto;
+}
+
+.download-text i {
+  color: #656565;
+  font-size: 1em;
+}
+
+/* STEPS */
+.steps-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 75px;
+  position: relative;
+  align-items: center;
+  min-height: 70px; /* ensure space but allow growth */
+  height: auto; /* allow full click area */
+}
+
+/* line behind the circles */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50px; /* margin from left */
+  right: 50px; /* margin from right */
+  height: 2px;
+  background-color: #ccc;
+  z-index: -1; /* put behind the step circles */
+  transform: translateY(-50%); /* perfectly center line vertically */
+}
+
+@media (max-width: 900px) {
+  .steps::before {
+    display: none;
+  }
+}
+
+/* STEP CIRCLES */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #777;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.step span {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  transition: all 0.3s;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.step i {
+  font-size: 17px;
+}
+
+.step * {
+  pointer-events: none;
+}
+
+/* ACTIVE STEP */
+.step.active span {
+  background-color: #28a745; /* green */
+  border-color: #1a9737;
+  color: #fff;
+}
+
+.step.active p {
+  color: #28a745;
+}
+
+.personal-section {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.personal-box {
+  background-color: #fff;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 40px 60px;
+  width: 92%;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  flex-wrap: wrap;
+}
+
+/* When the screen gets small enough for overlap risk */
+@media (max-width: 900px) {
+  .personal-box {
+    margin-top: 200px; /* add extra space only when needed */
+  }
+}
+
+.personal-header {
+  background-color: #28A745;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-left: -50px;
+  margin-right: -50px;
+  margin-top: -30px;
+}
+
+.personal-title {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 19px;
+  margin: 0;
+  text-align: left;
+}
+
+.note-text {
+  font-weight: bold;
+  color: #656565;
+  margin-top: 15px;
+  text-align: left;
+}
+
+/* PHOTO BOX */
+.photo-box {
+  border: 2px solid #D8BF72;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.photo-header {
+  background-color: #FDF8E3;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top:-20px;
+  padding: 8px 15px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.photo-title {
+  font-weight: bold;
+  color: #656565;
+  margin: 0;
+}
+
+.photo-area {
+  text-align: left;
+}
+
+.photo-preview {
+  width: 3.5cm;
+  height: 4.5cm;
+  margin-left: 10px;
+  background-color: #D9D9D9;
+  margin-bottom: 10px;
+  /*ADDED feature*/
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #AAA;
+}
+
+.choose-file-btn {
+  background-color: #D9D9D9;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: #656565;
+  cursor: pointer;
+  margin-left:10px;
+}
+
+.file-name {
+  color: #656565;
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.photo-error {
+  background-color: #FBCAD0;
+  color: #656565;
+  font-weight: bold;
+  padding: 8px 15px;
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.photo-invalid-icon {
+  width: 35px;   /* adjust size as needed */
+  height: 35px;
+}
+
+
+.photo-req-box {
+  border: 2px solid #EEEEEE;
+  padding: 20px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* PHOTO REQUIREMENTS TITLE */
+.photo-req-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers the title */
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.photo-req-title {
+  background-color: #EEEEEE;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #60A1A1;
+  padding: 5px 15px;
+  border-radius: 2px;
+  white-space: nowrap; /* prevents the title from wrapping */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.photo-req-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.photo-req-list {
+  list-style-type: disc;
+  color: #656565;
+  padding-left: 20px;
+  margin-top: 35px;
+  margin-left: 50px;
+}
+
+.photo-req-list li {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.photo-req-list li:first-child {
+  color: #D84046;
+  font-family: 'Roboto', sans-serif;
+}
+
+.photo-sample {
+  width: 3.5cm;
+  height: 4.5cm;
+  border: 1px solid #EEE;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+
+
+/* PERSONAL FIELDS */
+.personal-fields {
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.form-group label {
+  color: #656565;
+  font-weight: bold;
+  min-width: 250px;
+  text-align: right;
+}
+
+.form-group input,
+.form-group select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #656565;
+  border-radius: 5px;
+  color: #656565;
+}
+
+.form-group input[type="date"] {
+  appearance: auto;          /* default browser style */
+  -webkit-appearance: auto;  /* for Safari/Chrome */
+  -moz-appearance: auto;     /* for Firefox */
+  cursor: pointer;           /* show pointer on hover */
+}
+
+
+.other-nationality {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.other-box {
+  background-color: #EAE5E5;
+  color: #656565;
+  border: 1px solid #656565;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.reminder-box {
+  border: 1px solid #EEEEEE;
+  padding: 10px 15px;
+  color: #5CB85C;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* REMINDER TITLE */
+.reminder-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers the title */
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.reminder-title {
+  background-color: #EEEEEE;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #3C763D; /* same color as photo-req-title or change if needed */
+  padding: 5px 15px;
+  border-radius: 2px;
+  white-space: nowrap; /* prevents the title from wrapping */
+  display: flex;
+  align-items: center;
+}
+
+.address-box {
+  border: 1px solid #656565;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.address-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.address-field label {
+  min-width: 230px;
+  font-weight: bold;
+  color: #656565;
+  text-align: right;
+}
+
+.address-field input,
+.address-field select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #656565;
+  border-radius: 5px;
+  color: #656565;
+}
+
+.attention-box {
+  border: 1px solid #EEEEEE;
+  padding: 10px 15px;
+  color: #3C763D;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* REMINDER TITLE */
+.attention-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers the title */
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.attention-title {
+  background-color: #EEEEEE;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #D84046; /* same color as photo-req-title or change if needed */
+  padding: 5px 15px;
+  border-radius: 2px;
+  white-space: nowrap; /* prevents the title from wrapping */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attention-icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  background-color: #D9D9D9;
+  margin: 30px 0;
+}
+
+/* EMERGENCY CONTACT */
+.emergency-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.emergency-title {
+  background-color: #EEEEEE;
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #656565;
+  /* padding: 0 10px; */
+  padding: 5px 15px; 
+  white-space: nowrap;
+}
+
+.emergency-box {
+  border: 1px solid #EEEEEE;
+  padding: 20px;
+}
+
+.sections-title {
+    color: #656565;
+    font-size: 16px;
+}
+
+.next-btn {
+  background-color: #5CB85C;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.3s ease;
+  margin-top: 30px;
+}
+
+.next-btn:hover {
+  background-color: #4cae4c;
+}
+
+
+/* Fix responsiveness for small screens */
+@media (max-width: 600px) {
+  .form-group,
+  .address-field {
+    flex-wrap: wrap;              /* allow label and input to stack */
+    align-items: flex-start;
+  }
+
+  .form-group label,
+  .address-field label {
+    min-width: 100%;              /* let labels take full width */
+  }
+
+  .form-group input,
+  .form-group select,
+  .address-field input,
+  .address-field select {
+    width: 100%;                  /* full width input boxes */
+    box-sizing: border-box;
+  }
+
+  .personal-box {
+    /*padding: 30px 25px;  */         /* reduce inner padding on smaller screens */
+    width: 95%;
+    padding: 20px;
+  }
+
+  .personal-header {
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .personal-box {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* SOCIO-ECONOMIC SECTION CONTAINER */
+.socio-economic-section {
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    margin-top: 20px;
+    position: relative;
+    box-sizing: border-box; /* padding included in width */
+}
+
+/* Header */
+.socio-economic-header {
+    background-color: #28A745;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    margin-left: -50px;
+    margin-right: -50px; 
+}
+
+.socio-economic-header .socio-economic-title {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 19px;
+    margin: 0;
+    text-align: left;
+}
+
+/* Responsive fix: keep header inside box on smaller screens */
+@media (max-width: 900px) {
+    .socio-economic-header {
+        margin-left: -50px;  /* reduce negative margin */
+        margin-right: -50px; /* reduce negative margin */
+    }
+}
+
+/* Section Titles / Questions */
+.socio-economic-section label {
+    display: block;
+    font-weight: normal;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 2px;
+}
+
+/* Info Boxes */
+.socio-economic-section .infos-box {
+    background-color: #F8F9FA;
+    padding: 10px 15px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    text-align: justify;
+    font-size: 14px;
+    border: none;
+    color:#656565;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.infos-box {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Radio Groups - Left aligned, same line */
+.socio-economic-section .radio-group {
+    display: flex;
+    flex-direction: row; /* keep options on same line */
+    gap: 0px; /* space between radio buttons */
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.socio-economic-section .radio-group input[type="radio"] {
+  margin-right: 8px; /* space between the radio and label text */
+}
+
+
+.socio-economic-section .radio-group label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0px !important; /* space between each Yes/No option */
+}
+
+/* Right-aligned icon button for IDP */
+.socio-economic-section .idp-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.socio-economic-section .idp-section .radio-icon-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.idp-section {
+  position: relative; /*This ensures the popup is correctly aligned under the info button.*/
+}
+
+
+
+/* Checkboxes */
+.socio-economic-section .check-box-section {
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+
+.socio-economic-section .check-box-section .check-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap:1px 20px; /* smaller space between checkbox and label */
+}
+
+.socio-economic-section .check-box-section label {
+    display: flex;
+    align-items: center;
+    gap: 2px; /* reduces space between checkbox and text */
+    font-size: 15px;
+}
+
+/* Container of checkboxes */
+.check-box-section {
+  position: relative; /* make it parent for absolute title */
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 2px;
+  margin-top: 30px; /* space for title */
+}
+
+/* Box title that sits over the top border */
+.check-box-header .check-box-title {
+  position: absolute;
+  top: -16px; /* sits above the border */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  border-radius: 2px;
+  color: #656565;
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+
+/* Textfields */
+.socio-economic-section input[type="text"],
+.socio-economic-section select {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #656565;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Pop-up */
+.socio-economic-section .idp-popup {
+    display: none; /* initially hidden */
+    position: absolute;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    padding: 15px 20px;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.socio-economic-section .idp-popup table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #D9D9D9;
+}
+
+.socio-economic-section .idp-popup table td {
+    border: 1px solid #282828;
+    padding: 5px;
+    vertical-align: top;
+    font-size: 13px;
+}
+
+
+
+/* Info buttons for IDP and checkbox section */
+.socio-economic-section .info-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.label-btn-wrapper {
+  display: flex;
+  justify-content: space-between; /* label left, button right */
+  align-items: flex-start;
+  margin-bottom: 0px;
+}
+
+/* Force vertical layout for labels and their radio/checkbox groups */
+.form-group.vertical-field {
+  display: block; /* stack label and group vertically */
+}
+
+.form-group.vertical-field label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.form-group.vertical-field .radio-group,
+.form-group.vertical-field .check-boxes {
+  display: flex;
+  flex-direction: row; /* keep options in a row */
+  gap: 15px;
+}
+
+@media (max-width: 600px) {
+  .form-group.vertical-field .radio-group,
+  .form-group.vertical-field .check-boxes {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+label.no-underline {
+  text-decoration: none;
+}
+
+
+.idp-popup {
+  display: none; /* hide initially */
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  top: 40px;
+  background-color: #fff;
+  border-radius: 2px;
+  padding: 15px 20px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* Optional: overlay effect */
+.idp-popup.show {
+  display: block;
+}
+
+/* Wrapper for label + info box */
+.label-info-wrapper {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 2px; /* space between label and info box */
+  margin-bottom: 5px; /* optional extra space below the info box before radios */
+}
+
+/* Optional: adjust button size */
+.info-btn img {
+  width: 50px;
+  height: 30px;
+}
+
+/* Make the wrapper a positioning parent */
+.label-btn-wrapper {
+  position: relative; /* NEW */
+}
+
+/* Show popup on hover */
+.label-btn-wrapper .info-btn:hover + .idp-popup,
+.label-btn-wrapper .idp-popup:hover {
+  display: block !important; /* NEW */
+}
+
+.checkbox-info-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.checkbox-info-wrapper .info-btn:hover + .idp-popup,
+.checkbox-info-wrapper .idp-popup:hover {
+  display: block !important;
+}
+
+/* Center popup under this button (same as earlier) */
+.checkbox-info-wrapper .idp-popup {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40px;
+}
+
+
+
+/* ===============================
+   PARENT'S INFORMATION SECTION
+================================= */
+
+.parents-section {
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  color:#000000;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.parents-header {
+  background-color: #28A745;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  margin-left: -50px;
+  margin-right: -50px;
+}
+
+.parents-header .parents-title {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 19px;
+  margin: 0;
+  text-align: left;
+}
+
+/* Responsive fix: keep header inside box on smaller screens */
+@media (max-width: 900px) {
+    .parents-header {
+        margin-left: -50px;  /* reduce negative margin */
+        margin-right: -50px; /* reduce negative margin */
+    }
+}
+
+.parents-box {
+  border: 2px solid #EEEEEE;
+  border-radius: 2px;
+  padding: 30px;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-top: 0;
+  overflow-x:auto;
+}
+
+.parents-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.parents-table th,
+.parents-table td {
+  border: 2px solid #000000;
+  padding: 10px;
+}
+
+.parents-table th {
+  background-color: #D9D9D9;
+  font-weight: bold;
+}
+
+.parents-table td u {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.parents-table td[contenteditable="true"] {
+  background-color: #fafafa;
+  outline: none;
+}
+
+.parents-table .maiden-cell {
+  background-color: #D9D9D9; /* change to any color you like */
+  font-weight: bold;
+  text-align: center;
+}
+
+.parents-table td[contenteditable="true"]:focus {
+  background-color: #fff;
+  border:2px solid #000000;
+}
+
+.maiden-note {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+  color:#656565;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Box title that sits over the top border */
+.parents-box-header .parents-box-title {
+  position: absolute;
+  top: 65px; /* sits above the border */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  border-radius: 2px;
+  color: #656565;
+  font-size: 15px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+
+.income-section {
+  font-family: 'Roboto', sans-serif;
+  color: #656565;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+.income-section.error {
+  margin-bottom: 40px;
+}
+
+.income-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.income-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* space between each option */
+  margin-bottom: 20px;
+}
+
+.income-options label {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.income-options input[type="radio"] {
+  margin-right: 6px;
+  accent-color: #656565; /* matches the text color */
+}
+
+
+/* Sibling/s Information Section */
+.siblings-header {
+  background-color: #28A745;
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  margin-left: -50px;
+  margin-right: -50px;
+}
+
+.siblings-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 19px;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.siblings-box-header {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.siblings-box-title {
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  color: #656565;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.siblings-box {
+  border: 2px solid #EEEEEE;
+  border-radius: 2px;
+  padding: 30px;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin-top: 0;
+  overflow-x: auto;
+}
+
+.siblings-question {
+  font-family: 'Roboto', sans-serif;
+  color: #656565;
+  margin-bottom: 10px;
+}
+
+.radio-group label {
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #656565;
+}
+
+.siblings-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.siblings-table th,
+.siblings-table td {
+  border: 2px solid #000000;
+  padding: 10px;
+}
+
+.siblings-table th {
+  background-color: #D9D9D9;
+  font-weight: bold;
+}
+
+.siblings-table td[contenteditable="true"] {
+  background-color: #fafafa;
+  outline: none;
+}
+
+.siblings-table td[contenteditable="true"]:focus {
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.dropdown-field {
+  width: 100%;
+  padding: 4px;
+  border: none;
+  background-color: #fafafa;
+  font-family: 'Roboto', sans-serif;
+}
+
+.add-row-btn {
+  background-color: #28A745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.add-row-btn:hover {
+  background-color: #218838;
+}
+
+
+/* Style for the remove button (X) */
+.remove-summary-btn {
+  background-color: #ff4d4d; /* red */
+  color: #fff;               /* white text */
+  border: none;
+  border-radius: 50%;        /* round button */
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;           /* center in cell */
+  transition: background-color 0.2s ease;
+}
+
+.remove-row-btn:hover {
+  background-color: #ff1a1a; /* darker red on hover */
+}
+
+
+.siblings-summary-box {
+  border: 2px solid #EEEEEE;
+  border-radius: 2px;
+  padding: 20px;
+  background-color: #fff;
+  overflow-x: auto;
+  margin-top: 40px;
+}
+
+.siblings-summary-table {
+  margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.siblings-summary-table th,
+.siblings-summary-table td {
+  border: 2px solid #000000;
+  padding: 10px;
+}
+
+.siblings-summary-table th {
+  background-color: #D9D9D9;
+  font-weight: bold;
+}
+
+.no-siblings-text {
+  font-style: italic;
+  text-align: center;
+  color: #656565;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.siblings-summary-box-header {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.siblings-summary-box-title {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  color: #656565;
+  font-family: 'Roboto', sans-serif;
+}
+
+#addSiblingHeader,
+#addSiblingBox,
+#summaryHeader,
+#summaryBox {
+  display: none;
+}
+
+
+.error-notif {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 20px;          /* distance from top */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px 25px;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family: Arial, sans-serif;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.error {
+  border: 2px solid #dc3535;
+  background-color: #fff0f0;
+  border-radius: 5px;
+  /* */
+  padding: 1rem;
+}
+
+.question {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.question.error {
+    background: #fff0f0;
+    border: 2px solid #dc3535;
+}
+/* ----*/
+
+
+input.error,
+select.error,
+.radio-group .error {
+  border: 2px solid #dc3535;
+  background-color: #fff0f0;
+}
+/*
+.sex-field.error {
+  background-color: #ffe6e6;
+  padding: 5px;
+  border-radius: 5px;
+}
+*/
+/* Highlight only the radio group, not the label */
+.error-radio-group {
+  background-color: #fff0f0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #dc3535;
+}
+
+/*
+#indigenousSelectContainer,
+#indigenousOtherContainer {
+  display: none;
+}
+*/
+
+td.error {
+  outline: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+}

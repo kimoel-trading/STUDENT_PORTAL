@@ -1,0 +1,408 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* HEADER */
+.header-section {
+  background: url('assets/header.png') center center no-repeat;
+  background-size: contain;
+  width: 100vw;
+  height: auto;
+  aspect-ratio: 2000 / 601;
+  background-attachment: scroll;
+  background-color: white;
+}
+
+/* INFORMATION BOX */
+
+.info-box {
+  border-left: 6px solid #5BC0DE; /* blue border */
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  width: 90%;
+  background-color: #FFFFFF;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.info-content {
+  display: flex;
+  align-items: flex-start; /* aligns icon with first line */
+  gap: 10px;
+}
+
+.info-content .info-icon {
+  width: 1.2em;  /* scales with font size */
+  height: 1.2em; /* same here */
+  flex-shrink: 0; /* prevents it from resizing oddly */
+  margin-top: 0.2em; /* aligns better with text */
+}
+
+.info-content p {
+  margin: 0;
+}
+
+.info-box a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* AY SECTION */
+.ay-section {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 25px ;
+}
+
+.grades-section {
+  position: relative;
+  display: flex;
+  /*flex-direction: column;
+  align-items: center; */
+  justify-content: center;
+  width: 100%;
+  margin: 60px auto;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.grades-title {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.grades-box-container {
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 50px 30px 40px;
+  width: 92%;
+  margin:0 auto;
+  display: flex;
+  justify-content:center;
+  align-items: stretch;
+  column-gap: 350px;
+  row-gap: 30px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grade-card {
+  background-color: #f9f9f9;
+  /*border: 1px solid #EEEEEE;*/
+  border-radius: 20px;
+  padding: 20px;
+  flex: 0 1 450px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.grade-card:hover {
+  transform: scale(1.05);
+}
+
+.grade-card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.grade-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* space between icon and text */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.grade-header img {
+  width: 60px;
+  height: auto;
+}
+
+.grade-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  margin-bottom: 4px;
+
+}
+
+.download-text {
+  color: #656565;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;  /* space between icon and text */
+  margin-top:auto;
+}
+
+.download-text i {
+  color: #656565;
+  font-size: 1em; /* scales with text */
+}
+
+/* STEPS */
+
+.steps-section {
+
+  margin: 40px 0;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 75px;
+  position: relative;
+  align-items: center; /* keeps items centered vertically */
+  height: 70px; /* match this roughly to your circle’s size + spacing */
+}
+
+/* line behind the circles */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 35%; /* passes through center of circles */
+  left: 50%;
+  height: 2px; /* line thickness */
+  background-color: #ccc; /* line color */
+  z-index: 0; /* keeps it behind the circles */
+  transform: translate(-50%, -50%);
+  width: 1450px; /* line length, adjust as needed */
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .steps::before {
+    display: none;
+  }
+}
+
+/* ensures circles stay above the line */
+.step span {
+  position: relative;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #777;
+}
+
+.step span {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;           /* fixed width to ensure perfect circle */
+  height: 50px;          /* equal height for balance */
+  display: flex;         /* centers the icon perfectly */
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-weight: 600;
+}
+
+
+.step.active span {
+  background-color: #28a745;
+  color: #fff;
+  border: 2px solid #1a9737;
+}
+
+.step {
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.step i {
+  font-size: 17px;
+}
+
+.step.active {
+  color: white; /* icon turns white */
+}
+
+.step.active i {
+  color: white;
+}
+
+.step.active p {
+  color: #777;
+}
+
+/* WELCOME SECTION */
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.welcome-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 30px;
+  width: 92%;
+  /*
+  max-width: 1000px;   /* keeps it from stretching too wide */
+  /*min-width: 700px;    /* prevents shrinking too much */
+  
+  margin: 10px auto; /* default spacing */
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* When the screen gets small enough for overlap risk */
+@media (max-width: 900px) {
+  .welcome-box {
+    margin-top: 210px; /* add extra space only when needed */
+  }
+}
+.welcome-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 40px;
+}
+
+.welcome-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-images img {
+  width: 100%;
+  /*max-width: 300px; */
+  max-width: 600px;
+  object-fit: cover;
+}
+
+.welcome-text {
+  width: 50%;
+  flex: 2;
+  background-color: #F8F9FA;
+  padding: 70px;
+  border-radius: 10px;
+  line-height: 1.6;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.welcome-text h2 {
+  font-weight: bold;
+  color: #333;
+  margin-top: 0;
+  font-size: 35px;
+}
+
+.program-info-box {
+  background-color: #F8F9FA;
+  color: #282828;
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+  padding: 15px 20px;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.program-link {
+  color: #17A2BC;
+  text-decoration: underline;
+  font-family: 'Roboto', sans-serif;
+}
+
+.program-link:hover {
+  color: #1392A9;
+}
+
+
+.start-btn {
+  background-color: #5CB85C;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 12px 30px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #4cae4c;
+}
+
+
+.read-first-section {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+}
+
+.read-first-box {
+  background-color: #fff;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 30px;
+  width: 92%;
+  text-align: center;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* smooth transition between sections*/
+.hidden {
+  display: none !important;
+}
+
+#read-first-section,
+#confirmation-section {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#read-first-section:not(.hidden),
+#confirmation-section:not(.hidden) {
+  opacity: 1;
+}

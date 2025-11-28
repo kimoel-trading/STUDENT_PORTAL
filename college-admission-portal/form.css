@@ -1,0 +1,959 @@
+
+/* ---------- PRINT STYLES ---------- */
+@media print {
+
+  @page {
+    size: letter;
+    margin: 0.75in 0.75in;
+  }
+
+  body {
+    background: white !important;
+    margin: 10px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11px;
+  }
+
+  /* Hide non-print elements */
+  .header-section,
+  .info-box,
+  .steps-section,
+  .step,
+  .submit-section,
+  .btn-next,
+  .ay-section {
+    display: none !important;
+  }
+
+  .frame,
+  .frame2 {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Prevent breaking important blocks */
+  .privacy-section,
+  .instructions-section,
+  .form-section,
+  .form-section3,
+  table {
+    page-break-inside: avoid;
+  }
+}
+
+/* GENERAL */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* HEADER */
+.header-section {
+  background: url('assets/header.png') center center no-repeat;
+  background-size: contain;
+  width: 100vw;
+  height: auto;
+  aspect-ratio: 2000 / 601;
+  background-attachment: scroll;
+  background-color: white;
+}
+
+/* INFORMATION BOX */
+.info-box {
+  border-left: 6px solid #5BC0DE;
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 40px auto;
+  width: 90%;
+  background-color: #FFFFFF;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.info-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.info-content .info-icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  margin-top: 0.2em;
+}
+
+.info-content p {
+  margin: 0;
+}
+
+.info-box a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+/* AY SECTION */
+.ay-section {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 25px ;
+}
+
+.grades-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 60px auto;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.grades-title {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #EEEEEE;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.grades-box-container {
+  border: 4px solid #EEEEEE;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 50px 30px 40px;
+  width: 92%;
+  margin:0 auto;
+  display: flex;
+  justify-content:center;
+  align-items: stretch;
+  column-gap: 350px;
+  row-gap: 30px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grade-card {
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  padding: 20px;
+  flex: 0 1 450px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+.grade-card:hover {
+  transform: scale(1.05);
+}
+
+.grade-card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.grade-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.grade-header img {
+  width: 60px;
+  height: auto;
+}
+
+.grade-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.download-text {
+  color: #656565;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top:auto;
+}
+
+.download-text i {
+  color: #656565;
+  font-size: 1em;
+}
+
+/* STEPS */
+.steps-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 75px;
+  position: relative;
+  align-items: center;
+  height: 70px;
+}
+
+/* line behind the circles */
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 65px; /* margin from left */
+  right: 65px; /* margin from right */
+  height: 2px;
+  background-color: #ccc;
+  z-index: -1; /* put behind the step circles */
+  transform: translateY(-50%); /* perfectly center line vertically */
+}
+
+@media (max-width: 900px) {
+  .steps::before {
+    display: none;
+  }
+}
+
+/* STEP CIRCLES */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #777;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.step span {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  transition: all 0.3s;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.step i {
+  font-size: 17px;
+}
+
+/* ACTIVE STEP */
+.step.active span {
+  background-color: #28a745; /* green circle */
+  border-color: #1a9737;
+  color: #fff;
+}
+
+.step.active i {
+  color: white;
+}
+
+.step p {
+  margin-top: 5px;
+  color: #777;
+}
+
+.step.active p {
+  color: #28a745;
+}
+
+
+/* body */
+.container {
+    width: 92%;       
+    margin: 0 auto;             /* center horizontally */
+    background-color: white;
+    border-radius: 10px;
+    border: 4px solid #EEEEEE; 
+    padding: 20px;          /* optional internal padding */
+    box-sizing: border-box; /* include padding in width/height */
+}
+
+/* When the screen gets small enough for overlap risk */
+@media (max-width: 900px) {
+  .container {
+    margin-top: 200px; /* add extra space only when needed */
+  }
+}
+
+    .section-header {
+    background-color: #28A745;
+    color: #FFFFFF;
+    padding: 15px 23px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius:3px;
+    margin-left: -50px;
+    margin-right: -50px;
+    margin-top: -30px;
+    margin: 0;
+    text-align: left;
+
+    }
+
+    .frame {
+      background-color: rgba(163, 163, 163, 0.204);
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .notice-box {
+      background-color: #fffd8741;
+      border: 2px solid #cecd6c67;
+      border-radius: 3px;
+      padding: 13px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+    }
+
+    .container0 {
+      margin: 30px;
+    }
+
+    .frame2 {
+      background-color: rgb(255, 255, 255);
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    .form-content {
+      border: 2px solid #000; 
+      padding: 5px;
+    }
+
+    /* Header Section */
+    .reference-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 10px 20px 5px 20px;
+    }
+
+    .header-section1 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 10px 20px;
+      gap: 15px;
+    }
+
+    .logo-section {
+      width: 100px;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+    }
+
+    .title-section {
+      flex-grow: 1;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .university-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .university-subtitle {
+      font-size: 16px;
+      color: #c00;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .office-name {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    .app-number {
+      font-size: 12px;
+      text-align: right;
+      width: 130px;
+      flex-shrink: 0;
+    }
+
+    /* Privacy Section */
+    .privacy-section {
+      border: 2px solid #000;
+      padding: 15px 20px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      box-sizing: border-box;
+       margin-bottom: 0;
+     /* background: #f5f5f5;  temp to visualize */
+    }
+
+    .privacy-text {
+      flex: 1;
+      font-size: 13px;
+      line-height: 1.3;
+      font-style: italic;
+      text-align: justify;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .privacy-text p {
+      margin-bottom: 6px;
+    }
+
+    .photo-box {
+      width: 150px;
+      height: 200px;
+      border: 2px solid #000;
+      flex-shrink: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #999;
+      font-style: normal;
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+.instructions-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    border-bottom: 2px solid #000;
+    padding: 0;
+}
+
+/* LEFT SIDE */
+.instructions-left {
+    flex: 1;
+    border: 1.5px solid #000;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* RIGHT SIDE — fixed width and on the right */
+.instructions-right {
+    width: 300px;         /* adjust width to match your photo */
+    border: 1.5px solid #000;
+    padding: 10px 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Titles and checkboxes */
+.instructions-right .title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.checkbox-item {
+    margin-bottom: 3px;
+    font-size: 11px;
+    font-style: normal;
+}
+    /* Form Sections */
+    .form-section {
+     /* border-bottom: 2px solid #000;*/
+      margin-top: 0;
+    }
+
+    .section-title {
+    /*  background-color: #000;*/
+      color: rgb(0, 0, 0);
+      padding: 5px 10px;
+      border: 1.5px solid #000;
+      font-weight: bold;
+      font-size: 11px;
+      font-style: normal;
+      box-sizing: border-box;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+
+    table th,
+    table td {
+      border: 1px solid #000;
+      padding: 5px 8px;
+      text-align: left;
+    }
+
+
+    /* Specific table styling */
+    .info-table td {
+      font-style: italic;
+    }
+
+    .info-table .label-cell {
+      font-style: italic;
+      font-size: 9px;
+      color: #666;
+    }
+
+    .info-table .value-cell {
+      font-style: normal;
+      font-size: 10px;
+      font-weight: normal;
+    }
+
+    /* Recommendation Section */
+    .recommendation-section {
+      display: flex;
+      border-top: 1px solid #000;
+    }
+
+    .recommendation-left {
+      width: 50%;
+      border-right: 1px solid #000;
+      padding: 10px;
+      font-size: 10px;
+    }
+
+    .recommendation-left .subsection {
+      margin-bottom: 8px;
+    }
+
+    .recommendation-left .subsection-title {
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 3px;
+    }
+
+    .recommendation-right {
+      width: 50%;
+      padding: 10px;
+    }
+
+    .recommendation-right table {
+      margin-top: 0;
+    }
+
+    /* Other Information */
+    .other-info-section {
+      padding: 10px 20px;
+      font-size: 10px;
+    }
+
+    .other-info-section table {
+      border: none;
+    }
+
+    .other-info-section table td {
+      border: none;
+      padding: 3px 0;
+    }
+
+    .other-info-section .checkbox-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .other-info-section .checkbox-line:last-child {
+      border-bottom: none;
+    }
+
+    /* Parental Info Table */
+    .parental-table tbody tr:nth-child(odd) {
+      background-color: #f0f0f0;
+    }
+
+    /* Certification */
+    .certification-content {
+      padding: 10px 20px;
+      font-size: 10px;
+    }
+
+    .cert-text {
+      text-align: center;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .cert-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cert-left {
+      flex: 1;
+    }
+
+    .cert-right {
+      flex: 1;
+    }
+
+    .cert-right .title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .cert-right p {
+      margin-bottom: 2px;
+    }
+
+    .submit-section {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 25px;
+    }
+
+    .btn-next {
+      background-color: #5CB85C;
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: 60px;
+      margin-bottom: 30px;
+      font-family: Arial, sans-serif;
+      display: float;
+      font-weight: normal;
+      font-size: 16px;
+    }
+
+    .btn-next:hover {
+      background-color: #4cae4c;
+    }
+
+    @media print {
+      .submit-section {
+        display: none;
+      }
+      .container {
+        border: none;
+        width: 100%;
+      }
+      .frame, .frame2 {
+        padding: 0;
+        background: white;
+      }
+    }
+
+/*Applicant info*/
+.value-cell3 {
+    padding: 0;
+}
+
+.value-cell4 {
+    border-style: none;
+}
+
+.cell-inner {
+ /*  border: 1px solid #000; border around each value */
+  padding: 3px;            /* spacing inside the box */
+  text-align: left;       /* center the text */
+  display: block;
+  
+}
+
+.label-cell3 {
+    border: none;
+    padding: 2px 2px;   /* reduced padding for tighter spacing */
+    font-size: 10px;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.form-section {
+  /*border: 1px solid #000;*/
+  margin-bottom: 3px;
+}
+
+.info-table3 {
+    width: 100%;
+    margin-top: 1px;
+    border-collapse: separate; /* collapse borders so td borders show */
+}
+
+.info-table .td .i {
+   border: none;
+}
+
+.two-column-section {
+  display: flex;
+  margin-top: 20px;
+}
+
+.left-box,
+.right-box {
+  flex: 1;
+  padding: 20px;
+  font-size: 12px;
+}
+
+.left-box h3,
+.right-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/*PArental info*/
+.section-title{ 
+  margin-bottom: 2px;
+  margin-top: 5px;
+}
+
+.form-section1 {
+  border: 1px solid #000;
+  margin-bottom: 3px;
+}
+
+.info-table {
+    width: 100%;
+    margin-top: 1px;
+    border-collapse: separate; /* collapse borders so td borders show */
+}
+
+.value-cell1 {
+    padding: 0;
+}
+
+.cell-inner1 {
+  border: 1px solid #000; /* border around each value */
+  padding: 3px;            /* spacing inside the box */
+  text-align: left;       /* center the text */
+  display: block;
+  margin: 1px;
+}
+
+.label-cell1 {
+   /* border: 1px solid #000;*/
+    padding: 2px 2px;   /* reduced padding for tighter spacing */
+    font-size: 9px;
+    color: #000000;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+/* recom/ program */
+.container3 { display:flex; width:100%; }
+.left-column, .right-column { border:1px solid #000; padding:10px; }
+.section-title2 { border:1px solid #000; padding:3px; font-weight:bold; text-align:center; margin-top:0px; font-size:12px; }
+.subsection-title { font-weight:bold; margin-bottom:3px;  text-decoration: underline; }
+.subsection { margin-bottom:15px;  font-size: 12px; font-weight:bold; font-family: 'Times New Roman', Times, serif;}
+table { width:100%; border-collapse:collapse; }
+th, td { border:1px solid #000; padding:5px; font-weight:bold; font-family: 'Times New Roman', Times, serif; }
+
+
+/* Parental Information Table */
+.parental-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+  font-size: 10px;
+}
+
+.parental-table td {
+  border: 1px solid #000;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.parental-table .label-row {
+  font-size: 9px;
+  font-style: italic;
+  font-weight: bold;
+  padding: 2px 8px;
+}
+
+/* Sibling Information Table - No Spacing */
+.sibling-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #000;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.sibling-info-table td {
+  border: 1px solid #000;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.sibling-info-table .label-cell3 {
+  font-size: 9px;
+  font-style: italic;
+  font-weight: normal;
+  padding: 5px 8px;
+  background-color: #f5f5f5;
+}
+
+.sibling-info-table .value-cell3 {
+  padding: 5px 8px;
+  font-size: 10px;
+}
+
+.certification-content {
+  padding: 3px 5px;
+  font-size: 11px;
+}
+
+.cert-text {
+  margin-bottom: 0;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.cert-text p {
+  margin-bottom: 15px;
+}
+
+.cert-footer {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.cert-left {
+  flex: 1;
+  padding-top: 10px;
+}
+
+.cert-left p {
+  margin: 5px 0;
+  font-size: 11px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.cert-left .date-signed {
+  margin-top: 15px;
+}
+
+.cert-right {
+  flex: 1;
+}
+
+/* TAO Personnel Box */
+.tao-box {
+  border: 2px solid #000;
+  padding: 5px 5px;
+}
+
+.tao-title {
+  font-size: 11px;
+  margin-bottom: 8px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.tao-table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+
+.tao-table tr td {
+  border: none;
+  padding: 3px 0;
+  font-size: 10px;
+}
+
+.tao-label {
+  border: none;
+  padding: 3px 0;
+  font-size: 10px;
+}
+
+.tao-field {
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 3px 0;
+}
+
+.tao-value {
+  border: none;
+  padding: 3px 5px;
+  font-weight: bold;
+}
+
+.tao-gap {
+  padding-top: 8px;
+}
+
+/* Print-specific styles */
+@media print {
+  .certification-content {
+    page-break-inside: avoid;
+  }
+  
+  .cert-footer {
+    page-break-inside: avoid;
+  }
+  
+  .tao-box {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
