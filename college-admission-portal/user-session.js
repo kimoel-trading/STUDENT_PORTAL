@@ -10,20 +10,29 @@
       });
 
       if (!response.ok) {
-        return null;
+        // If no authenticated user (normal for new applications), use session ID
+        return "temp_" + Date.now();
       }
 
       const data = await response.json();
-      return data && data.success ? String(data.user_id) : null;
+      return data && data.success ? String(data.user_id) : "temp_" + Date.now();
     } catch (error) {
-      console.warn("[user-session] Unable to fetch current user:", error);
-      return null;
+      console.warn("[user-session] Unable to fetch current user, using temporary ID:", error);
+      return "temp_" + Date.now();
     }
   }
 
   function clearApplicantStorage() {
     try {
-      localStorage.clear();
+      // Only clear form data, keep other localStorage items
+      const keysToRemove = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && (key.includes('form') || key.includes('step') || key.includes('progress'))) {
+          keysToRemove.push(key);
+        }
+      }
+      keysToRemove.forEach(key => localStorage.removeItem(key));
     } catch (error) {
       console.warn("[user-session] Unable to clear localStorage:", error);
     }
@@ -36,7 +45,7 @@
     }
 
     const storedUserId = localStorage.getItem(ACTIVE_KEY);
-    if (storedUserId && storedUserId !== currentUserId) {
+    if (storedUserId && storedUserId !== currentUserId && !storedUserId.startsWith('temp_')) {
       clearApplicantStorage();
     }
 

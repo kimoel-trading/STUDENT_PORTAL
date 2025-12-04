@@ -20,15 +20,24 @@ set_exception_handler(function ($exception) {
     exit();
 });
 
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) { 
-    http_response_code(401); 
-    echo json_encode(['success' => false, 'message' => 'Please login first.']); 
-    exit(); 
+// Check if application is started
+if (!isset($_SESSION['application_started'])) {
+    http_response_code(401);
+    echo json_encode(['success' => false, 'message' => 'Application not started.']);
+    exit();
 }
 
-// Include the database connection
-require_once 'db_connection.php'; 
+require_once 'db_connection.php';
+
+// Get input data
+$rawInput = file_get_contents('php://input');
+$data = json_decode($rawInput, true);
+
+if (!$data) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Invalid request data.']);
+    exit();
+} 
 
 // Get raw input data
 $rawInput = file_get_contents('php://input'); 
@@ -41,8 +50,10 @@ if (!$data) {
     exit(); 
 }
 
-// Get the user ID from the session
-$userId = (int) $_SESSION['user_id']; 
+// Store education data temporarily in session (will be saved to database at final submission)
+$_SESSION['application_progress']['education'] = $data;
+
+echo json_encode(['success' => true, 'message' => 'Education data validated and stored temporarily.']); 
 
 // Map file numbers to database column names
 $fileColumnMap = [

@@ -292,7 +292,7 @@ if (!canvas) {
 }
 
   if (submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
+    submitBtn.addEventListener('click', async (e) => {
       e.preventDefault();
 
       if (!hasSignature) {
@@ -304,13 +304,64 @@ if (!canvas) {
         return;
       }
 
-      const overlay = document.getElementById('notifOverlay');
-      if (overlay) {
-        overlay.style.display = 'flex';
-        setTimeout(() => {
-          overlay.style.display = 'none';
-          window.location.href = 'educattach.html';
-        }, 2500);
+      // Disable button to prevent double submission
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        // Save signature first
+        const signatureData = localStorage.getItem("savedSignature");
+        if (signatureData) {
+          await fetch('../backend/save_signature.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ signature: signatureData })
+          });
+        }
+
+        // Submit the application
+        const response = await fetch('../backend/submit_application.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Show success message with application number
+          const overlay = document.getElementById('notifOverlay');
+          if (overlay) {
+            overlay.innerHTML = `
+              <div class="success-message">
+                <h3>🎉 Application Submitted Successfully!</h3>
+                <p><strong>Your Application Number:</strong></p>
+                <p class="application-number">${result.application_number}</p>
+                <p>Please save this number for future reference.</p>
+                <p>You will be redirected to the registrar portal.</p>
+              </div>
+            `;
+            overlay.style.display = 'flex';
+
+            // Redirect to registrar portal after showing success
+            setTimeout(() => {
+              // TODO: Replace with actual registrar portal URL
+              window.location.href = 'https://registrar.batstate-u.edu.ph/application-submitted?app=' + result.application_number;
+            }, 5000);
+          }
+        } else {
+          alert('Submission failed: ' + result.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Application';
+        }
+      } catch (error) {
+        alert('An error occurred during submission. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+        console.error('Submission error:', error);
       }
     });
   }

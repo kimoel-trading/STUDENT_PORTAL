@@ -5,13 +5,11 @@ require_once 'db_connection.php';
 // You MUST add a user_id column to the aap table in MySQL (run once in phpMyAdmin):
 // ALTER TABLE aap ADD COLUMN user_id INT NULL AFTER id;
 
-// Require user to be logged in so we know whose record to update
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../college-admission-portal/landing.php?error=Please+login+first");
+// Require application to be started
+if (!isset($_SESSION['application_started'])) {
+    header("Location: ../college-admission-portal/landing.php?error=Please+start+the+application+first");
     exit();
 }
-
-$user_id = $_SESSION['user_id'];
 
 // Get selected AAP option
 $aapChoice = $_POST['aap'] ?? null;
@@ -59,80 +57,23 @@ switch ($aapChoice) {
         break;
 }
 
-// Check if this user already has a row in aap
-$checkSql = "SELECT id FROM aap WHERE user_id = ? LIMIT 1";
-$checkStmt = $conn->prepare($checkSql);
-$checkStmt->bind_param("i", $user_id);
-$checkStmt->execute();
-$checkResult = $checkStmt->get_result();
+// Store AAP data temporarily in session
+$aapData = [
+    'aap_choice' => $aapChoice,
+    'is_indigent_student' => $is_indigent_student,
+    'is_als_graduate' => $is_als_graduate,
+    'is_indigenous_people' => $is_indigenous_people,
+    'is_pwd' => $is_pwd,
+    'is_iscolar_ng_bayan' => $is_iscolar_ng_bayan,
+    'is_children_of_solo_parent' => $is_children_of_solo_parent,
+    'is_batstateu_lab_graduate' => $is_batstateu_lab_graduate
+];
 
-if ($checkResult && $checkResult->num_rows > 0) {
-    // UPDATE existing row
-    $row = $checkResult->fetch_assoc();
-    $aapId = (int)$row['id'];
+$_SESSION['application_progress']['aap'] = $aapData;
 
-    $sql = "UPDATE aap
-            SET is_indigent_student = ?,
-                is_als_graduate = ?,
-                is_indigenous_people = ?,
-                is_pwd = ?,
-                is_iscolar_ng_bayan = ?,
-                is_children_of_solo_parent = ?,
-                is_batstateu_lab_graduate = ?
-            WHERE id = ? AND user_id = ?";
-
-    $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        header("Location: ../college-admission-portal/aap.html?error=Unable+to+save+AAP+selection");
-        exit();
-    }
-
-    $stmt->bind_param(
-        "sssssssii",
-        $is_indigent_student,
-        $is_als_graduate,
-        $is_indigenous_people,
-        $is_pwd,
-        $is_iscolar_ng_bayan,
-        $is_children_of_solo_parent,
-        $is_batstateu_lab_graduate,
-        $aapId,
-        $user_id
-    );
-} else {
-    // INSERT new row
-    $sql = "INSERT INTO aap
-        (user_id, is_indigent_student, is_als_graduate, is_indigenous_people,
-         is_pwd, is_iscolar_ng_bayan, is_children_of_solo_parent, is_batstateu_lab_graduate)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-    $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        header("Location: ../college-admission-portal/aap.html?error=Unable+to+save+AAP+selection");
-        exit();
-    }
-
-    $stmt->bind_param(
-        "isssssss",
-        $user_id,
-        $is_indigent_student,
-        $is_als_graduate,
-        $is_indigenous_people,
-        $is_pwd,
-        $is_iscolar_ng_bayan,
-        $is_children_of_solo_parent,
-        $is_batstateu_lab_graduate
-    );
-}
-
-if ($stmt->execute()) {
     // Go to next step
     header("Location: ../college-admission-portal/personal.html");
     exit();
-} else {
-    header("Location: ../college-admission-portal/aap.html?error=Failed+to+save+AAP+selection");
-    exit();
-}
 
 ?>
 
